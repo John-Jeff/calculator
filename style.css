@@ -1,0 +1,16 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-body {
+    width: 400px;
+    height: 600px;
+    background: grey;
+    border-radius: 1em;
+    border: .4em black solid;
+}
