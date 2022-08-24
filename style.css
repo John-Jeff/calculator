@@ -5,12 +5,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #7c7b7b;
 }
 
 #main-body {
+    /* box-sizing: border-box; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 400px;
     height: 600px;
-    background: grey;
+    background: #edf6f9;
     border-radius: 1em;
     border: .4em black solid;
+    padding: 50px;
+}
+
+#main-screen {
+    width: 400px;
+    height: 100px;
+    background: #e3ecee;
+    border-radius: .5em;
+    border: .4em black solid;
+
 }
