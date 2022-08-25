@@ -16,15 +16,15 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 400px;
-    height: 650px;
+    height: 630px;
     background: #edf6f9;
     border-radius: 1rem;
     border: .3rem black solid;
-    padding: 50px;
+    padding: 30px 25px 25px 25px;
 }
 
 #main-screen {
-    width: 400px;
+    width: 380px;
     height: 100px;
     background: #e3ecee;
     border-radius: 1rem;
@@ -35,7 +35,7 @@ body {
 #button-box {
     display: grid;
     width: 400px;
-    height: auto;
+    height: 500px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
@@ -58,10 +58,8 @@ body {
     background-color: #edf6f9;
     border-radius: 1rem;
     border: .2rem black solid;
-}
-
-#equal {
-    width: 186.6px;
+    justify-self: center;
+    align-self: center;
 }
 
 #equal,
