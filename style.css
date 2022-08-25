@@ -12,9 +12,10 @@ body {
     /* box-sizing: border-box; */
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    width: 400px;
-    height: 600px;
+    width: 600px;
+    height: 800px;
     background: #edf6f9;
     border-radius: 1em;
     border: .4em black solid;
@@ -22,10 +23,25 @@ body {
 }
 
 #main-screen {
-    width: 400px;
+    width: 600px;
     height: 100px;
     background: #e3ecee;
     border-radius: .5em;
     border: .4em black solid;
 
+}
+
+.row {
+    width: 600px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    width: 100px;
+    height: 100px;
+    background-color: #edf6f9;
+    border-radius: 1.5em;
+    border: .4em black solid;
 }
