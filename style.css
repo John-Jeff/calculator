@@ -60,17 +60,28 @@ body {
     border: .2rem black solid;
     justify-self: center;
     align-self: center;
+    transition: all .1s;
 }
 
-#equal,
-#divide,
-#multiply,
-#subtract,
-#add {
+.button:hover {
+    cursor: pointer;
+    background: #cbc0d3;
+}
+
+.op {
     background: #83c5be;
 }
 
-#on,
-#ac {
+.op:hover {
+    color: #edf6f9;
+    background: #006d77;
+}
+
+.sys {
     background: #ffddd2;
+}
+
+.sys:hover {
+    color: #edf6f9;
+    background: #e29578;
 }
