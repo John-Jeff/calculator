@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 600px;
+    width: 500px;
     height: 800px;
     background: #edf6f9;
     border-radius: 1em;
@@ -23,27 +23,32 @@ body {
 }
 
 #main-screen {
-    width: 600px;
+    width: 500px;
     height: 100px;
     background: #e3ecee;
-    border-radius: .5em;
-    border: .4em black solid;
+    border-radius: 1.2rem;
+    border: .3rem black solid;
 
 }
 
 .row {
-    width: 600px;
+    width: 500px;
     height: 100px;
     display: flex;
     justify-content: space-between;
 }
 
 .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    box-sizing: border-box;
     width: 100px;
     height: 100px;
     background-color: #edf6f9;
-    border-radius: 1.5em;
-    border: .4em black solid;
+    border-radius: 1.2rem;
+    border: .3rem black solid;
 }
 
 #divide,
