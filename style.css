@@ -45,3 +45,15 @@ body {
     border-radius: 1.5em;
     border: .4em black solid;
 }
+
+#divide,
+#multiply,
+#subtract,
+#add {
+    background: #83c5be;
+}
+
+#on,
+#ac {
+    background: #ffddd2;
+}
