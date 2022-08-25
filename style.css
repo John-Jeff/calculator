@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #7c7b7b;
+    background: #fefae0;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -30,6 +30,14 @@ body {
     border-radius: 1rem;
     border: .2rem black solid;
 
+}
+
+#button-box {
+    display: grid;
+    width: 400px;
+    height: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 }
 
 .row {
