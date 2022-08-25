@@ -15,26 +15,26 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 500px;
-    height: 800px;
+    width: 400px;
+    height: 650px;
     background: #edf6f9;
-    border-radius: 1em;
-    border: .4em black solid;
+    border-radius: 1rem;
+    border: .3rem black solid;
     padding: 50px;
 }
 
 #main-screen {
-    width: 500px;
+    width: 400px;
     height: 100px;
     background: #e3ecee;
-    border-radius: 1.2rem;
-    border: .3rem black solid;
+    border-radius: 1rem;
+    border: .2rem black solid;
 
 }
 
 .row {
-    width: 500px;
-    height: 100px;
+    width: 400px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
 }
@@ -43,15 +43,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 36px;
     box-sizing: border-box;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: #edf6f9;
-    border-radius: 1.2rem;
-    border: .3rem black solid;
+    border-radius: 1rem;
+    border: .2rem black solid;
 }
 
+#equal {
+    width: 186.6px;
+}
+
+#equal,
 #divide,
 #multiply,
 #subtract,
