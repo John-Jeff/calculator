@@ -24,12 +24,26 @@ body {
 }
 
 #main-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 20px;
     width: 380px;
     height: 100px;
     background: #e3ecee;
     border-radius: 1rem;
     border: .2rem black solid;
+}
 
+#input {
+    margin: 0;
+    font-size: 28px;
+}
+
+#result{
+    margin: 0;
+    font-size: 32px;
 }
 
 #button-box {
