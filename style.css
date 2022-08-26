@@ -68,6 +68,10 @@ body {
     background: #cbc0d3;
 }
 
+.button:active {
+    transform: scale(.90);
+}
+
 .op {
     background: #83c5be;
 }
