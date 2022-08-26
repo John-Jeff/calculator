@@ -29,7 +29,7 @@ body {
     justify-content: center;
     align-items: flex-end;
     padding-right: 20px;
-    width: 380px;
+    width: 360px;
     height: 100px;
     background: #e3ecee;
     border-radius: 1rem;
@@ -86,11 +86,16 @@ body {
     transform: scale(.90);
 }
 
-.op {
+.op, #equal{
     background: #83c5be;
 }
 
 .op:hover {
+    color: #edf6f9;
+    background: #006d77;
+}
+
+#equal:hover {
     color: #edf6f9;
     background: #006d77;
 }
