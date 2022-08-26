@@ -5,7 +5,8 @@ let resultText = document.querySelector('#result');
 let numbers = [];
 let num1 = [];
 let num2 = [];
-let result = 0;
+let operation;
+let result;
 
 buttonBox.addEventListener('click', function(e) {
     if (e.target !== this) {
@@ -19,24 +20,24 @@ buttonBox.addEventListener('click', function(e) {
 function collectInput(input) {
 
     if (input.value === '/') {
-        if (numbers.length > 0) {
-
-            num1 = numbers.join('');
-            
-            for (let i = 0; i <= numbers.length; i++) {
-                numbers.shift();
-            };
-        }
+       computation(input);
     }
     else if (input.value === '*') {
-
+        computation(input);
     }
-    else if (input.value === '-') console.log('-');
-    else if (input.value === '+') console.log('+');
+    else if (input.value === '-') {
+        computation(input);
+    }
+    else if (input.value === '+') {
+        computation(input);
+    }
     else if (input.value === '=') {
         if (numbers.length > 0) {
-            num2 = numbers.join('');
-            result = num1/num2;
+            num2 = parseInt(numbers.join(''));
+            if (operation === '/') result = num1/num2;
+            if (operation === '*') result = num1*num2;
+            if (operation === '-') result = num1-num2;
+            if (operation === '+') result = num1+num2;
         }
     }
 
@@ -48,4 +49,17 @@ function collectInput(input) {
         }
     }
 
+}
+
+function computation(input) {
+    if (numbers.length > 0) {
+
+        num1 = parseInt(numbers.join(''));
+        
+        for (let i = 0; i <= numbers.length; i++) {
+            numbers.shift();
+        };
+
+        operation = input.value;
+    }
 }
