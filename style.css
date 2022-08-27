@@ -61,6 +61,13 @@ body {
     justify-content: space-between;
 }
 
+#add,
+#subtract,
+#divide,
+#equal {
+    font-size: 44px;
+}
+
 .button {
     display: flex;
     justify-content: center;
