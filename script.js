@@ -30,7 +30,7 @@ function collectInput(input) {
                 // if (num1 < num2) result = parseFloat((num1/num2).toFixed(15));
                 result = num1 / num2;
             }
-            else if (operation === '*') result = num1 * num2;
+            else if (operation === '✕') result = num1 * num2;
             else if (operation === '-') result = num1 - num2;
             else if (operation === '+') result = num1 + num2;
         }
@@ -58,6 +58,9 @@ function computation(input) {
         operation = input.value;
     }
 }
+
+
+
 
 function operate(num1, num2, op) {
     let firstNum = num1;
