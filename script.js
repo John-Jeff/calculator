@@ -51,9 +51,7 @@ function computation(input) {
 
         num1 = parseInt(numbers.join(''));
 
-        for (let i = 0; i <= numbers.length; i++) {
-            numbers.shift();
-        };
+        for (let i = 0; i <= numbers.length; i++) numbers.shift();
 
         operation = input.value;
     }
@@ -62,13 +60,13 @@ function computation(input) {
 
 
 
-function operate(num1, num2, op) {
-    let firstNum = num1;
-    let secNum = num2;
+function operate(op, ...num) {
+    let firstNum = num[0];
+    let secNum = num[1];
     let result;
 
-    if (op === '/') result = firstNum / secNum;
-    else if (op === '*') result = firstNum * secNum;
+    if (op === '÷') result = firstNum / secNum;
+    else if (op === '✕') result = firstNum * secNum;
     else if (op === '-') result = firstNum - secNum;
     else if (op === '+') result = firstNum + secNum;
 
