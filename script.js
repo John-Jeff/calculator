@@ -26,7 +26,7 @@ function collectInput(input) {
     else if (input.value === '=') {
         if (numbers.length > 0) {
             num2 = parseInt(numbers.join(''));
-            if (operation === '/') {
+            if (operation === '÷') {
                 // if (num1 < num2) result = parseFloat((num1/num2).toFixed(15));
                 result = num1 / num2;
             }
