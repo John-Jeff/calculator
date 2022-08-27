@@ -1,7 +1,8 @@
-let buttonBox = document.querySelector('#button-box');
-let inputText = document.querySelector('#input');
-let resultText = document.querySelector('#result');
+const buttonBox = document.querySelector('#button-box');
+const inputText = document.querySelector('#input');
+const resultText = document.querySelector('#result');
 
+const calcFunc = ['+', '-', '÷', '✕', 'on', 'ac', 'spec'];
 let numbers = [];
 let num1 = [];
 let num2 = [];
@@ -14,51 +15,34 @@ buttonBox.addEventListener('click', function (e) {
         inputText.textContent += e.target.value;
         resultText.textContent = result;
     }
-
 })
 
 function collectInput(input) {
 
-    if (input.classList.contains('op')) computation(input);
-    // else if (input.value === '*') computation(input);
-    // else if (input.value === '-') computation(input);
-    // else if (input.value === '+') computation(input);
+    if (calcFunc.includes(input.value)) {
+        if (numbers.length > 0) {
+
+            num1 = parseInt(numbers.join(''));
+
+            for (let i = 0; i <= numbers.length; i++) numbers.shift();
+
+            operation = input.value;
+        }
+    }
+
     else if (input.value === '=') {
         if (numbers.length > 0) {
             num2 = parseInt(numbers.join(''));
-            if (operation === '÷') {
-                // if (num1 < num2) result = parseFloat((num1/num2).toFixed(15));
-                result = num1 / num2;
-            }
-            else if (operation === '✕') result = num1 * num2;
-            else if (operation === '-') result = num1 - num2;
-            else if (operation === '+') result = num1 + num2;
+
+            result = operate(operation, num1, num2);
         }
     }
 
-    else {
-        if (parseInt(input.value) === NaN) { }
-        else {
-            numbers.push(parseInt(input.value));
-            console.log(numbers);
-        }
-    }
-
-}
-
-function computation(input) {
-    if (numbers.length > 0) {
-
-        num1 = parseInt(numbers.join(''));
-
-        for (let i = 0; i <= numbers.length; i++) numbers.shift();
-
-        operation = input.value;
+    else if (!calcFunc.includes(input.value)) {
+        numbers.push(parseInt(input.value));
+        console.log(numbers);
     }
 }
-
-
-
 
 function operate(op, ...num) {
     let firstNum = num[0];
@@ -72,3 +56,5 @@ function operate(op, ...num) {
 
     return result;
 }
+
+// if (num1 < num2) result = parseFloat((num1/num2).toFixed(15));
