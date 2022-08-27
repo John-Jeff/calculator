@@ -49,10 +49,24 @@ function operate(op, ...num) {
     let secNum = num[1];
     let result;
 
-    if (op === '÷') result = firstNum / secNum;
-    else if (op === '✕') result = firstNum * secNum;
-    else if (op === '-') result = firstNum - secNum;
-    else if (op === '+') result = firstNum + secNum;
+    switch (op) {
+        case '÷':
+            result = firstNum / secNum;
+            break;
+        case '✕':
+            result = firstNum * secNum;
+            break;
+        case '-':
+            result = firstNum - secNum;
+            break;
+        case '+':
+            result = firstNum + secNum;
+            break;
+    }
+    // if (op === '÷') result = firstNum / secNum;
+    // else if (op === '✕') result = firstNum * secNum;
+    // else if (op === '-') result = firstNum - secNum;
+    // else if (op === '+') result = firstNum + secNum;
 
     return result;
 }
