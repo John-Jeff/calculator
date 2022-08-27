@@ -11,6 +11,11 @@ let result;
 
 buttonBox.addEventListener('click', function (e) {
     if (e.target !== this) {
+        if (e.target.value === 'ac') {
+            inputText.textContent = '';
+            result = '';
+        }
+
         collectInput(e.target);
         inputText.textContent += e.target.value;
         resultText.textContent = result;
