@@ -2,8 +2,9 @@ const buttonBox = document.querySelector('#button-box');
 const inputText = document.querySelector('#input');
 const resultText = document.querySelector('#result');
 
-const calcFunc = ['+', '-', '÷', '✕', 'on', 'ac', 'spec'];
-let calcArray = [];
+const calcSys = ['+', '-', '÷', '✕', 'on', 'ac', 'spec'];
+const calcFunc = ['+', '-', '÷', '✕'];
+const calcArray = [];
 let numbers = [];
 let num1 = [];
 let num2 = [];
@@ -26,7 +27,7 @@ buttonBox.addEventListener('click', function (e) {
 
 function collectInput(input) {
 
-    if (calcFunc.includes(input.value)) {
+    if (calcSys.includes(input.value)) {
         if (numbers.length > 0) {
 
             num1 = parseInt(numbers.join(''));
@@ -45,7 +46,7 @@ function collectInput(input) {
         }
     }
 
-    else if (!calcFunc.includes(input.value)) {
+    else if (!calcSys.includes(input.value)) {
         numbers.push(parseInt(input.value));
         console.log(numbers);
     }
@@ -84,12 +85,12 @@ function operate(op, ...num) {
 
 function test(input) {
 
-    if (!calcFunc.includes(input.value)) {
+    if (!calcSys.includes(input.value)) {
         numbers.push(parseInt(input.value));
         console.log(numbers);
     }
 
-    if (input.value === '÷' || input.value === '✕' || input.value === '+' || input.value === '-') {
+    if (calcFunc.includes(input.value)) {
 
         calcArray.push(parseInt(numbers.join('')));
         for (let i = 0; i <= numbers.length; i++) numbers.shift();
