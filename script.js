@@ -5,7 +5,7 @@ const resultText = document.querySelector('#result');
 const calcSys = ['on', 'ac', 'spec'];
 const calcFunc = ['+', '-', '÷', '✕', '='];
 const calcArray = [];
-let numbers = [];
+const numbers = [];
 let result;
 
 buttonBox.addEventListener('click', function (e) {
@@ -21,8 +21,6 @@ buttonBox.addEventListener('click', function (e) {
         resultText.textContent = result;
     }
 })
-
-// if (num1 < num2) result = parseFloat((num1/num2).toFixed(15));
 
 function operate(input) {
 
@@ -55,6 +53,8 @@ function operate(input) {
 
             (calcArray[3] === '=') ? calcArray.splice(1, calcArray.length - 1) : calcArray.splice(1, calcArray.length - 2);
             
+            // calcArray[0] = parseFloat(calcArray[0]).toFixed(10);
+
             result = calcArray[0];
         }
     }
