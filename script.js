@@ -90,36 +90,29 @@ function test(input) {
     }
 
     if (input.value === '÷' || input.value === '✕' || input.value === '+' || input.value === '-') {
+
         calcArray.push(parseInt(numbers.join('')));
         for (let i = 0; i <= numbers.length; i++) numbers.shift();
         calcArray.push(input.value);
-    }
 
-    if ((input.value === '÷' || input.value === '✕' || input.value === '+' || input.value === '-') && (calcArray.length === 2)) {
-        calcArray.push(parseInt(numbers.join('')));
-        for (let i = 0; i <= numbers.length; i++) numbers.shift();
-    }
+        if (calcArray.length >= 3) {
+            switch (calcArray[1]) {
+                case '÷':
+                    calcArray[0] = calcArray[0] / calcArray[2];
+                    break;
+                case '✕':
+                    calcArray[0] = calcArray[0] * calcArray[2];
+                    break;
+                case '-':
+                    calcArray[0] = calcArray[0] - calcArray[2];
+                    break;
+                case '+':
+                    calcArray[0] = calcArray[0] + calcArray[2];
+                    break;
+            }
 
-    if (calcArray.length >= 3) {
-        switch (calcArray[1]) {
-            case '÷':
-                calcArray[0] = calcArray[0] / calcArray[2];
-                // calcArray.splice(0, calcArray.length -1);
-                break;
-            case '✕':
-                calcArray[0] = calcArray[0] * calcArray[2];
-                calcArray.splice(0,2);
-                break;
-            case '-':
-                calcArray[0] = calcArray[0] - calcArray[2];
-                calcArray.splice(0,2);
-                break;
-            case '+':
-                calcArray[0] = calcArray[0] + calcArray[2];
-                calcArray.splice(0,2);
-                break;
+            calcArray.splice(1, calcArray.length - 2);
+            result = calcArray[0];
         }
-
-        result = calcArray[0];
     }
 }
