@@ -2,8 +2,8 @@ const buttonBox = document.querySelector('#button-box');
 const inputText = document.querySelector('#input');
 const resultText = document.querySelector('#result');
 
-const calcSys = ['+', '-', '÷', '✕', 'on', 'ac', 'spec'];
-const calcFunc = ['+', '-', '÷', '✕'];
+const calcSys = ['+', '-', '÷', '✕', '=', 'on', 'ac', 'spec'];
+const calcFunc = ['+', '-', '÷', '✕', '='];
 const calcArray = [];
 let numbers = [];
 let num1 = [];
@@ -112,7 +112,8 @@ function test(input) {
                     break;
             }
 
-            calcArray.splice(1, calcArray.length - 2);
+            (calcArray[3] === '=') ? calcArray.splice(1, calcArray.length - 1) : calcArray.splice(1, calcArray.length - 2);
+            
             result = calcArray[0];
         }
     }
