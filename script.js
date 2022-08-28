@@ -3,6 +3,7 @@ const inputText = document.querySelector('#input');
 const resultText = document.querySelector('#result');
 
 const calcFunc = ['+', '-', '÷', '✕', 'on', 'ac', 'spec'];
+let calcArray = [];
 let numbers = [];
 let num1 = [];
 let num2 = [];
@@ -16,7 +17,8 @@ buttonBox.addEventListener('click', function (e) {
             result = '';
         }
 
-        collectInput(e.target);
+        // collectInput(e.target);
+        test(e.target);
         inputText.textContent += e.target.value;
         resultText.textContent = result;
     }
@@ -54,6 +56,8 @@ function operate(op, ...num) {
     let secNum = num[1];
     let result;
 
+    if (typeof result === 'number') firstNum = result;
+
     switch (op) {
         case '÷':
             result = firstNum / secNum;
@@ -77,3 +81,45 @@ function operate(op, ...num) {
 }
 
 // if (num1 < num2) result = parseFloat((num1/num2).toFixed(15));
+
+function test(input) {
+
+    if (!calcFunc.includes(input.value)) {
+        numbers.push(parseInt(input.value));
+        console.log(numbers);
+    }
+
+    if (input.value === '÷' || input.value === '✕' || input.value === '+' || input.value === '-') {
+        calcArray.push(parseInt(numbers.join('')));
+        for (let i = 0; i <= numbers.length; i++) numbers.shift();
+        calcArray.push(input.value);
+    }
+
+    if ((input.value === '÷' || input.value === '✕' || input.value === '+' || input.value === '-') && (calcArray.length === 2)) {
+        calcArray.push(parseInt(numbers.join('')));
+        for (let i = 0; i <= numbers.length; i++) numbers.shift();
+    }
+
+    if (calcArray.length >= 3) {
+        switch (calcArray[1]) {
+            case '÷':
+                calcArray[0] = calcArray[0] / calcArray[2];
+                // calcArray.splice(0, calcArray.length -1);
+                break;
+            case '✕':
+                calcArray[0] = calcArray[0] * calcArray[2];
+                calcArray.splice(0,2);
+                break;
+            case '-':
+                calcArray[0] = calcArray[0] - calcArray[2];
+                calcArray.splice(0,2);
+                break;
+            case '+':
+                calcArray[0] = calcArray[0] + calcArray[2];
+                calcArray.splice(0,2);
+                break;
+        }
+
+        result = calcArray[0];
+    }
+}
