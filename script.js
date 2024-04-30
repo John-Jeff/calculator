@@ -13,35 +13,35 @@ let result;
 let value1 = '';
 let value2 = '';
 let operator = '';
-let temp = false;
-
-// for (let numberBtn of numberBtns) {
-//     console.log(numberBtn.value);
-// }
 
 numberBtns.forEach((numberBtn) => {
     numberBtn.addEventListener('click', function() {
         console.log(this.value);
-        if (!temp) {
+        if (!operator) {
             value1 += this.value;
-            console.log(value1);
         } else {
             value2 += this.value;
-            console.log(value2);
         }
+        updateDisplay();
     })
 })
 
 operationBtns.forEach((operationBtn) => {
     operationBtn.addEventListener('click', function() {
-        if (value1 && value2) {
-            value1 = calculate(this.value);
+        if ((value1 && value2) && (this.id === 'equal')) {
+            value1 = calculate(value1, operator, value2);
+            value2 = '';
+            operator = '';
         }
+        else if (value1) {
+            operator = this.value;
+        }
+        updateDisplay();
     })
 })
 
 
-function calculate(operator) {
+function calculate(value1, operator, value2) {
     let num1 = Number.parseInt(value1);
     let num2 = Number.parseInt(value2);
     let result;
@@ -62,6 +62,10 @@ function calculate(operator) {
     return result;
 }
 
+function updateDisplay() {
+    const inputText = document.querySelector('#input');
+    inputText.innerText = `${value1} ${operator} ${value2}`;
+}
 
 // buttonBox.addEventListener('click', function (e) {
 //     if (e.target !== this) {
