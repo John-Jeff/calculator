@@ -38,10 +38,10 @@ clearBtn.addEventListener('click', clear);
 
 function updateTerms() {
     if (!operator) {
-        value1 += this.value;
+        (value1.length < 10) && (value1 += this.value);
         console.log(value1);
     } else {
-        value2 += this.value;
+        (value2.length < 10) && (value2 += this.value);
         console.log(value2);
     }
     updateDisplay();
