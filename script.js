@@ -32,10 +32,14 @@ clearBtn.addEventListener('click', clear);
 
 function updateTerms() {
     if (!operator) {
-        (value1.length < 10) && (value1 += this.value);
+        if (value1.length < 10) {
+            value1 += checkForDecimal(this.value, value1);
+        }
         console.log(value1);
     } else {
-        (value2.length < 10) && (value2 += this.value);
+        if (value2.length < 10) {
+            value2 += checkForDecimal(this.value, value2);
+        }
         console.log(value2);
     }
     updateDisplay();
@@ -73,4 +77,12 @@ function clear() {
     value2 = '';
     operator = '';
     updateDisplay();
+}
+
+function checkForDecimal(input, value) {
+    if (input === '.') {
+        return (!value.includes('.')) ? input : '';
+    } else {
+        return input;
+    }
 }
