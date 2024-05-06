@@ -1,9 +1,6 @@
-const buttonBox = document.querySelector('#button-box');
 const numberBtns = document.querySelectorAll('.number');
 const operationBtns = document.querySelectorAll('.op');
 const clearBtn = document.querySelector('#all-clear');
-const inputText = document.querySelector('#input');
-const resultText = document.querySelector('#result');
 
 let value1 = '';
 let value2 = '';
