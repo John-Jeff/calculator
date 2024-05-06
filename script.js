@@ -15,12 +15,12 @@ numberBtns.forEach((numberBtn) => {
 
 operationBtns.forEach((operationBtn) => {
     operationBtn.addEventListener('click', function() {
-        if ((value1 && value2)) {
+        if (!(value1 === '') && !(value2 === '')) {
             value1 = calculate(value1, operator, value2);
             value2 = '';
             operator = (this.id === 'equal') ? '' : this.value;
         }
-        else if (value1 && this.value !== '=') {
+        else if (!(value1 === '') && this.value !== '=') {
             operator = this.value;
         }
         updateDisplay();
