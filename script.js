@@ -63,6 +63,9 @@ function calculate(value1, operator, value2) {
             result = num1 / num2;
             break;
     }
+    if (!Number.isInteger(result)) {
+        result = result.toFixed(3);
+    }
     console.log(result);
     return result;
 }
