@@ -6,8 +6,34 @@ let value1 = '';
 let value2 = '';
 let operator = '';
 
+document.addEventListener('keydown', (e) => {
+    numberBtns.forEach(function(numberBtn) {
+        if (e.key === numberBtn.value) {
+            console.log(e.key);
+            updateTerms(e.key);
+        }
+    });
+
+    operationBtns.forEach(function(operationBtn) {
+        if (e.key === operationBtn.value) {
+            console.log(e.key);
+            if (!(value1 === '') && !(value2 === '')) {
+                value1 = calculate(value1, operator, value2);
+                value2 = '';
+                operator = (e.key === '=') ? '' : e.key;
+            }
+            else if (!(value1 === '') && e.key !== '=') {
+                operator = e.key;
+            }
+            updateDisplay();
+        }
+    });
+});
+
 numberBtns.forEach((numberBtn) => {
-    numberBtn.addEventListener('click', updateTerms);
+    numberBtn.addEventListener('click', function() {
+        updateTerms(this.value);
+    });
 });
 
 operationBtns.forEach((operationBtn) => {
@@ -27,15 +53,15 @@ operationBtns.forEach((operationBtn) => {
 clearBtn.addEventListener('click', clear);
 
 
-function updateTerms() {
+function updateTerms(input) {
     if (!operator) {
         if (value1.length < 10) {
-            value1 += checkForDecimal(this.value, value1);
+            value1 += checkForDecimal(input, value1);
         }
         console.log(value1);
     } else {
         if (value2.length < 10) {
-            value2 += checkForDecimal(this.value, value2);
+            value2 += checkForDecimal(input, value2);
         }
         console.log(value2);
     }
