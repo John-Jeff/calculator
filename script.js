@@ -1,11 +1,13 @@
 const numberBtns = document.querySelectorAll('.number');
 const operationBtns = document.querySelectorAll('.op');
 const clearBtn = document.querySelector('#all-clear');
+const backBtn = document.querySelector('#back-btn');
 
 let value1 = '';
 let value2 = '';
 let operator = '';
 
+// Key press functionality
 document.addEventListener('keydown', (e) => {
     numberBtns.forEach(function (numberBtn) {
         if (e.key === numberBtn.value) {
@@ -28,8 +30,14 @@ document.addEventListener('keydown', (e) => {
             updateDisplay();
         }
     });
+
+    if (e.key === 'Backspace') {
+        backspace();
+    }
 });
 
+
+// Click functionality
 numberBtns.forEach((numberBtn) => {
     numberBtn.addEventListener('click', function (e) {
         if (e.detail == 1) {
@@ -51,6 +59,10 @@ operationBtns.forEach((operationBtn) => {
         updateDisplay();
     })
 });
+
+backBtn.addEventListener('click', function() {
+    backspace();
+})
 
 clearBtn.addEventListener('click', clear);
 
@@ -98,6 +110,13 @@ function calculate(value1, operator, value2) {
 function updateDisplay() {
     const inputText = document.querySelector('#input');
     inputText.innerText = `${value1} ${operator} ${value2}`;
+}
+
+function backspace() {
+    let combinedInputs = [value1, operator, value2].join(' ').trim();
+    combinedInputs = combinedInputs.substring(0, combinedInputs.length-1);
+    [value1 = '', operator = '', value2 = ''] = combinedInputs.split(' ');
+    updateDisplay();
 }
 
 function clear() {
