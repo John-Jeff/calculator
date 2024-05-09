@@ -7,22 +7,22 @@ let value2 = '';
 let operator = '';
 
 document.addEventListener('keydown', (e) => {
-    numberBtns.forEach(function(numberBtn) {
+    numberBtns.forEach(function (numberBtn) {
         if (e.key === numberBtn.value) {
             console.log(e.key);
             updateTerms(e.key);
         }
     });
 
-    operationBtns.forEach(function(operationBtn) {
+    operationBtns.forEach(function (operationBtn) {
         if (e.key === operationBtn.value) {
             console.log(e.key);
             if (!(value1 === '') && !(value2 === '')) {
                 value1 = calculate(value1, operator, value2);
                 value2 = '';
-                operator = (e.key === '=') ? '' : e.key;
+                operator = (e.key === 'Enter') ? '' : e.key;
             }
-            else if (!(value1 === '') && e.key !== '=') {
+            else if (!(value1 === '') && e.key !== 'Enter') {
                 operator = e.key;
             }
             updateDisplay();
@@ -31,19 +31,21 @@ document.addEventListener('keydown', (e) => {
 });
 
 numberBtns.forEach((numberBtn) => {
-    numberBtn.addEventListener('click', function() {
-        updateTerms(this.value);
+    numberBtn.addEventListener('click', function (e) {
+        if (e.detail == 1) {
+            updateTerms(this.value);
+        }
     });
 });
 
 operationBtns.forEach((operationBtn) => {
-    operationBtn.addEventListener('click', function() {
+    operationBtn.addEventListener('click', function () {
         if (!(value1 === '') && !(value2 === '')) {
             value1 = calculate(value1, operator, value2);
             value2 = '';
             operator = (this.id === 'equal') ? '' : this.value;
         }
-        else if (!(value1 === '') && this.value !== '=') {
+        else if (!(value1 === '') && this.value !== 'Enter') {
             operator = this.value;
         }
         updateDisplay();
