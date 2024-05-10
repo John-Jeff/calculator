@@ -73,7 +73,7 @@ clearBtn.addEventListener('click', (e) => {
 
 function updateTerms(input) {
     if (!operator) {
-        if (value1.length < 10) {
+        if (value1.toString().length < 10) {
             value1 += checkForDecimal(input, value1);
         }
         console.log(value1);
