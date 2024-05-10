@@ -2,6 +2,7 @@ const numberBtns = document.querySelectorAll('.number');
 const operationBtns = document.querySelectorAll('.op');
 const clearBtn = document.querySelector('#all-clear');
 const backBtn = document.querySelector('#back-btn');
+const INPUT_FONT_SIZE = '28px';
 
 let value1 = '';
 let value2 = '';
@@ -113,7 +114,9 @@ function calculate(value1, operator, value2) {
 
 function updateDisplay() {
     const inputText = document.querySelector('#input');
-    inputText.innerText = `${value1} ${operator} ${value2}`;
+    let combinedInputs = `${value1} ${operator} ${value2}`
+    inputText.innerText = combinedInputs;
+    checkForTextOverflow(combinedInputs);
 }
 
 function backspace() {
@@ -136,4 +139,10 @@ function checkForDecimal(input, value) {
     } else {
         return input;
     }
+}
+
+function checkForTextOverflow(combinedInputs) {
+    const inputText = document.querySelector('#input');
+    // let currentInputSize = Number.parseFloat(window.getComputedStyle(inputText).fontSize);
+    inputText.style.fontSize = (combinedInputs.length > 20) ? `24px` : INPUT_FONT_SIZE;
 }
