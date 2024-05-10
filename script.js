@@ -47,24 +47,28 @@ numberBtns.forEach((numberBtn) => {
 });
 
 operationBtns.forEach((operationBtn) => {
-    operationBtn.addEventListener('click', function () {
-        if (!(value1 === '') && !(value2 === '')) {
-            value1 = calculate(value1, operator, value2);
-            value2 = '';
-            operator = (this.id === 'equal') ? '' : this.value;
+    operationBtn.addEventListener('click', function (e) {
+        if (e.detail == 1) {
+            if (!(value1 === '') && !(value2 === '')) {
+                value1 = calculate(value1, operator, value2);
+                value2 = '';
+                operator = (this.id === 'equal') ? '' : this.value;
+            }
+            else if (!(value1 === '') && this.value !== 'Enter') {
+                operator = this.value;
+            }
+            updateDisplay();
         }
-        else if (!(value1 === '') && this.value !== 'Enter') {
-            operator = this.value;
-        }
-        updateDisplay();
     })
 });
 
-backBtn.addEventListener('click', function() {
-    backspace();
+backBtn.addEventListener('click', (e) => {
+    if (e.detail == 1) backspace();
 })
 
-clearBtn.addEventListener('click', clear);
+clearBtn.addEventListener('click', (e) => {
+    if (e.detail == 1) clear();
+});
 
 
 function updateTerms(input) {
@@ -114,7 +118,7 @@ function updateDisplay() {
 
 function backspace() {
     let combinedInputs = [value1, operator, value2].join(' ').trim();
-    combinedInputs = combinedInputs.substring(0, combinedInputs.length-1);
+    combinedInputs = combinedInputs.substring(0, combinedInputs.length - 1);
     [value1 = '', operator = '', value2 = ''] = combinedInputs.split(' ');
     updateDisplay();
 }
