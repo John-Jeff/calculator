@@ -2,6 +2,7 @@ const numberBtns = document.querySelectorAll('.number');
 const operationBtns = document.querySelectorAll('.op');
 const clearBtn = document.querySelector('#all-clear');
 const backBtn = document.querySelector('#back-btn');
+const themeBtn = document.querySelector('#theme');
 const INPUT_FONT_SIZE = '28px';
 
 let value1 = '';
@@ -12,14 +13,12 @@ let operator = '';
 document.addEventListener('keydown', (e) => {
     numberBtns.forEach(function (numberBtn) {
         if (e.key === numberBtn.value) {
-            console.log(e.key);
             updateTerms(e.key);
         }
     });
 
     operationBtns.forEach(function (operationBtn) {
         if (e.key === operationBtn.value) {
-            console.log(e.key);
             if (!(value1 === '') && !(value2 === '')) {
                 value1 = calculate(value1, operator, value2);
                 value2 = '';
@@ -71,18 +70,20 @@ clearBtn.addEventListener('click', (e) => {
     if (e.detail == 1) clear();
 });
 
+themeBtn.addEventListener('click', (e) => {
+    if (e.detail == 1) toggleDarkMode();
+})
+
 
 function updateTerms(input) {
     if (!operator) {
         if (value1.toString().length < 10) {
             value1 += checkForDecimal(input, value1);
         }
-        console.log(value1);
     } else {
         if (value2.length < 10) {
             value2 += checkForDecimal(input, value2);
         }
-        console.log(value2);
     }
     updateDisplay();
 }
@@ -108,7 +109,6 @@ function calculate(value1, operator, value2) {
     if (!Number.isInteger(result)) {
         result = result.toFixed(3);
     }
-    console.log(result);
     return result;
 }
 
@@ -145,4 +145,17 @@ function checkForTextOverflow(combinedInputs) {
     const inputText = document.querySelector('#input');
     // let currentInputSize = Number.parseFloat(window.getComputedStyle(inputText).fontSize);
     inputText.style.fontSize = (combinedInputs.length > 20) ? `24px` : INPUT_FONT_SIZE;
+}
+
+function toggleDarkMode() {
+    const body = document.body;
+    const calcBody = document.querySelector('.main-body');
+    const calcScreen = document.querySelector('.main-screen');
+    
+    body.classList.toggle('dark-back');
+    calcBody.classList.toggle('dark');
+    calcScreen.classList.toggle('dark');
+    numberBtns.forEach((numberBtn) => {
+        numberBtn.classList.toggle('dark');
+    });
 }

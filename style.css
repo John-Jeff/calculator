@@ -9,7 +9,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-#main-body {
+.main-body {
     /* box-sizing: border-box; */
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@ body {
     padding: 30px 25px 25px 25px;
 }
 
-#main-screen {
+.main-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,4 +114,14 @@ body {
 .sys:hover {
     color: #edf6f9;
     background: #e29578;
+}
+
+.dark-back {
+    background-color: #474743;
+}
+
+.dark {
+    color: #d3d3d3;
+    background-color: #363636;
+    border-color: #636363;
 }
