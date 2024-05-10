@@ -151,11 +151,15 @@ function toggleDarkMode() {
     const body = document.body;
     const calcBody = document.querySelector('.main-body');
     const calcScreen = document.querySelector('.main-screen');
+    const btns = document.querySelectorAll('button');
     
     body.classList.toggle('dark-back');
     calcBody.classList.toggle('dark');
     calcScreen.classList.toggle('dark');
-    numberBtns.forEach((numberBtn) => {
-        numberBtn.classList.toggle('dark');
-    });
+    btns.forEach((btn) => {
+        btn.classList.toggle('dark');
+    })
+    // numberBtns.forEach((numberBtn) => {
+    //     numberBtn.classList.toggle('dark');
+    // });
 }
