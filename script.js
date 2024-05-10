@@ -159,7 +159,4 @@ function toggleDarkMode() {
     btns.forEach((btn) => {
         btn.classList.toggle('dark');
     })
-    // numberBtns.forEach((numberBtn) => {
-    //     numberBtn.classList.toggle('dark');
-    // });
 }
